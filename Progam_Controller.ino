@@ -11,17 +11,24 @@ void startProgram2()
 void startProgram3()
 {
   currentProgram = 3;
-  currentProgramStep = 0;
+  currentProgramStep = 120;
 }
 void startProgram4()
 {
   currentProgram = 4;
   currentProgramStep = 0;
+  setColorForAllPixels(CRGB::Black);
+  delay (3000);
 }
 void startProgram5()
 {
   currentProgram = 5;
   currentProgramStep = 0;
+}
+void startProgram6()
+{
+  currentProgram = 6;
+  SetupPalette();
 }
 
 void continueOnSelectedProgram()
@@ -38,10 +45,13 @@ void continueOnSelectedProgram()
     program3AtStep(currentProgramStep);
     break;
   case 4:
-
+    program4AtStep(currentProgramStep);
     break;
   case 5:
-
+    program5AtStep(currentProgramStep);
+    break;
+  case 6:
+    program6AtStep(currentProgramStep);
     break;
   }
 }
@@ -73,5 +83,6 @@ int getButtonPressed()
     return -1;
   }
 }
+
 
 

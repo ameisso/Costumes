@@ -1,3 +1,5 @@
+#define COSTUME_COLOR CRGB::Orange
+
 #define PROGRAM_1 17
 #define PROGRAM_2 18
 #define PROGRAM_3 19
@@ -19,15 +21,17 @@ CRGB rightLeg[NUM_LEDS_IN_MEMBER];
 
 
 #include <Metro.h>
-Metro metroButton = Metro (3000);
+Metro metroButton = Metro (500);
 
-
-int currentProgram = 3;
+int currentProgram = 6;
 int currentProgramStep = 100;
 int way = -1;
+CRGBPalette16 currentPalette ;
 
 void setup() 
 {            
+  SetupPalette();
+  
   Serial.begin(38400);
   pinMode(PROGRAM_1, INPUT_PULLUP);
   pinMode(PROGRAM_2, INPUT_PULLUP);
@@ -66,42 +70,9 @@ void loop()
       break;
     }
   }
-
   continueOnSelectedProgram();
 }
 
-void initSequence()
-{
-  setColorForAllPixels(CRGB::Orange);
-  delay(200);
-  setColorForAllPixels(CRGB::Turquoise);
-  delay(200);
-  setColorForAllPixels(CRGB::Blue);
-  delay(200);
-  setColorForAllPixels(CRGB::Black);
-  delay(200);
-  FastLED.show();
-}
-
-void setColorForAllPixels(CRGB color)
-{
-  for(uint16_t i=0; i<NUM_LEDS_IN_MEMBER; i++)
-  {
-    leftArm[i] = color;
-  }
-  FastLED.show();
-}
-
-void setColorForAllPixels(CRGB color, int intensity)
-{
-  Serial.println(intensity);
-  FastLED.setBrightness( intensity );
-  for(uint16_t i=0; i<NUM_LEDS_IN_MEMBER; i++)
-  {
-    leftArm[i] = color;
-  }
-  FastLED.show();
-}
 
 
 

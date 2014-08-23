@@ -1,12 +1,12 @@
-void program3AtStep(int step)//fade
+void program3AtStep(int step)//breathe
 {
-  if (currentProgramStep > random(150,255) || currentProgramStep < random(1,50))
+  if (currentProgramStep > random(200,255) || currentProgramStep < random(1,100))
   {
     way *= -1; 
   }
   currentProgramStep += way;
-  setColorForAllPixels(CRGB::White,currentProgramStep);
-  delay(5);
+  setColorForAllPixels(COSTUME_COLOR,currentProgramStep);
+  delay(10);
 }
 
 
