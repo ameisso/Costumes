@@ -9,21 +9,25 @@
 #define LED_OUTPUT_LEFT_LEG 7
 #define LED_OUTPUT_RIGHT_LEG 8
 
-#include <Adafruit_NeoPixel.h>
-Adafruit_NeoPixel leftArm = Adafruit_NeoPixel(16, LED_OUTPUT_LEFT_ARM, NEO_GRB + NEO_KHZ800);
-Adafruit_NeoPixel rightArm = Adafruit_NeoPixel(16, LED_OUTPUT_RIGHT_ARM, NEO_GRB + NEO_KHZ800);
-Adafruit_NeoPixel leftLeg = Adafruit_NeoPixel(16, LED_OUTPUT_LEFT_LEG, NEO_GRB + NEO_KHZ800);
-Adafruit_NeoPixel RightLeg = Adafruit_NeoPixel(16, LED_OUTPUT_RIGHT_LEG, NEO_GRB + NEO_KHZ800);
+#define NUM_LEDS_IN_MEMBER 16
+
+#include "FastLED.h"
+CRGB leftArm[NUM_LEDS_IN_MEMBER];
+CRGB rightArm[NUM_LEDS_IN_MEMBER];
+CRGB leftLeg[NUM_LEDS_IN_MEMBER];
+CRGB rightLeg[NUM_LEDS_IN_MEMBER];
 
 
+#include <Metro.h>
+Metro metroButton = Metro (3000);
 
 
 int currentProgram = 3;
-int currentProgramStep = 0;
-
+int currentProgramStep = 100;
+int way = -1;
 
 void setup() 
-{                
+{            
   Serial.begin(38400);
   pinMode(PROGRAM_1, INPUT_PULLUP);
   pinMode(PROGRAM_2, INPUT_PULLUP);
@@ -31,59 +35,80 @@ void setup()
   pinMode(PROGRAM_4, INPUT_PULLUP);
   pinMode(PROGRAM_5, INPUT_PULLUP);
 
-  initSequence();
-  Serial.println("Init OK");
+  FastLED.addLeds<WS2812B, LED_OUTPUT_LEFT_ARM, GRB>(leftArm, NUM_LEDS_IN_MEMBER);
+  FastLED.addLeds<WS2812B, LED_OUTPUT_RIGHT_ARM, GRB>(rightArm, NUM_LEDS_IN_MEMBER);
+  FastLED.addLeds<WS2812B, LED_OUTPUT_LEFT_LEG, GRB>(leftLeg, NUM_LEDS_IN_MEMBER);
+  FastLED.addLeds<WS2812B, LED_OUTPUT_RIGHT_LEG, GRB>(rightLeg, NUM_LEDS_IN_MEMBER);
+
+ // initSequence();
 }
 
 void loop()                     
 {
-  int buttonPressed = getButtonPressed();
-  switch (buttonPressed) {
-  case 1:
-    startProgram1();
-    break;
-  case 2:
-    startProgram2();
-    break;
-  case 3:
-    startProgram3();
-    break;
-  case 4:
-    startProgram4();
-    break;
-  case 5:
-    startProgram5();
-    break;
-  default: 
-    currentProgramStep++;
-    continueOnSelectedProgram();
+  if(metroButton.check() == true)
+  {
+    int buttonPressed = getButtonPressed();
+    switch (buttonPressed) {
+    case 1:
+      startProgram1();
+      break;
+    case 2:
+      startProgram2();
+      break;
+    case 3:
+      startProgram3();
+      break;
+    case 4:
+      startProgram4();
+      break;
+    case 5:
+      startProgram5();
+      break;
+    }
   }
+
+  continueOnSelectedProgram();
 }
 
 void initSequence()
 {
-  leftArm.begin();
+  setColorForAllPixels(CRGB::Orange);
   delay(200);
-  setColorForAllPixels(leftArm.Color(0,0,0));
+  setColorForAllPixels(CRGB::Turquoise);
   delay(200);
-  setColorForAllPixels(leftArm.Color(255,255,0));
+  setColorForAllPixels(CRGB::Blue);
   delay(200);
-  setColorForAllPixels(leftArm.Color(0,255,255));
+  setColorForAllPixels(CRGB::Black);
   delay(200);
-  setColorForAllPixels(leftArm.Color(255,0,0));
-  delay(200);
-  leftArm.setBrightness(0);
-  leftArm.show();
+  FastLED.show();
 }
 
-void setColorForAllPixels(uint32_t color)
+void setColorForAllPixels(CRGB color)
 {
-  for(uint16_t i=0; i<leftArm.numPixels(); i++)
+  for(uint16_t i=0; i<NUM_LEDS_IN_MEMBER; i++)
   {
-    leftArm.setPixelColor(i,color);
+    leftArm[i] = color;
   }
-  leftArm.show();
+  FastLED.show();
 }
+
+void setColorForAllPixels(CRGB color, int intensity)
+{
+  Serial.println(intensity);
+  FastLED.setBrightness( intensity );
+  for(uint16_t i=0; i<NUM_LEDS_IN_MEMBER; i++)
+  {
+    leftArm[i] = color;
+  }
+  FastLED.show();
+}
+
+
+
+
+
+
+
 
 
 

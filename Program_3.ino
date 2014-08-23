@@ -1,22 +1,15 @@
 void program3AtStep(int step)//fade
 {
-
-  for(uint16_t j=0; j<255; j++)
+  if (currentProgramStep > random(150,255) || currentProgramStep < random(1,50))
   {
-
-    for(uint16_t i=0; i<leftArm.numPixels(); i++)
-    {
-      leftArm.setPixelColor(i,j,j,j);
-    }
-    leftArm.show();
+    way *= -1; 
   }
-
-
-
-
-
-
+  currentProgramStep += way;
+  setColorForAllPixels(CRGB::White,currentProgramStep);
+  delay(5);
 }
+
+
 
 
 
