@@ -23,8 +23,9 @@ CRGB rightLeg[NUM_LEDS_IN_MEMBER];
 #include <Metro.h>
 Metro metroButton = Metro (500);
 
-int currentProgram = 6;
-int currentProgramStep = 100;
+#warning : should init program at -1 and program step @ 0
+int currentProgram = 8;
+int currentProgramStep = 0;
 int way = -1;
 CRGBPalette16 currentPalette ;
 
@@ -44,7 +45,7 @@ void setup()
   FastLED.addLeds<WS2812B, LED_OUTPUT_LEFT_LEG, GRB>(leftLeg, NUM_LEDS_IN_MEMBER);
   FastLED.addLeds<WS2812B, LED_OUTPUT_RIGHT_LEG, GRB>(rightLeg, NUM_LEDS_IN_MEMBER);
 
- // initSequence();
+  initSequence();
 }
 
 void loop()                     

@@ -25,7 +25,6 @@ void setColorForAllPixels(CRGB color)
 
 void setColorForAllPixels(CRGB color, int intensity)
 {
-  Serial.println(intensity);
   FastLED.setBrightness( intensity );
   for(uint16_t i=0; i<NUM_LEDS_IN_MEMBER; i++)
   {
@@ -99,8 +98,14 @@ void SetupPalette()
   PaleTurquoise, MidnightBlue, LightCoral,  Fuchsia);
 }
 
-
-
+void setColorForPatchInMember(CRGB color, int patchIndex, CRGB *member)
+{
+    for(uint16_t i=patchIndex *4; i<patchIndex * 4 +4; i++)
+  {
+    member[i] = color;
+  }
+  FastLED.show();
+}
 
 
 

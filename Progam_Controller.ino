@@ -28,7 +28,19 @@ void startProgram5()
 void startProgram6()
 {
   currentProgram = 6;
+  currentProgramStep = 0;
   SetupPalette();
+}
+void startProgram7()
+{
+  currentProgram = 7;
+  currentProgramStep = 0;
+}
+
+void startProgram8()
+{
+  currentProgram = 8;
+  currentProgramStep = 0;
 }
 
 void continueOnSelectedProgram()
@@ -52,6 +64,12 @@ void continueOnSelectedProgram()
     break;
   case 6:
     program6AtStep(currentProgramStep);
+    break;
+  case 7:
+    program7AtStep(currentProgramStep);
+    break;
+  case 8:
+    program8AtStep(currentProgramStep);
     break;
   }
 }
@@ -83,6 +101,9 @@ int getButtonPressed()
     return -1;
   }
 }
+
+
+
 
 
 
