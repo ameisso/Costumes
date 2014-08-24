@@ -1,4 +1,6 @@
-#define COSTUME_COLOR CRGB::Orange
+#define COSTUME_COLOR CRGB::White
+
+#define STATUS_LED 13
 
 #define PROGRAM_1 17
 #define PROGRAM_2 18
@@ -24,7 +26,7 @@ CRGB rightLeg[NUM_LEDS_IN_MEMBER];
 Metro metroButton = Metro (500);
 
 #warning : should init program at -1 and program step @ 0
-int currentProgram = 8;
+int currentProgram = 7;
 int currentProgramStep = 0;
 int way = -1;
 CRGBPalette16 currentPalette ;
@@ -32,7 +34,7 @@ CRGBPalette16 currentPalette ;
 void setup() 
 {            
   SetupPalette();
-  
+  pinMode(STATUS_LED, OUTPUT);
   Serial.begin(38400);
   pinMode(PROGRAM_1, INPUT_PULLUP);
   pinMode(PROGRAM_2, INPUT_PULLUP);
@@ -52,6 +54,9 @@ void loop()
 {
   if(metroButton.check() == true)
   {
+    digitalWrite(STATUS_LED, HIGH);
+    delay(5);
+    digitalWrite(STATUS_LED, LOW);
     int buttonPressed = getButtonPressed();
     switch (buttonPressed) {
     case 1:
@@ -73,6 +78,7 @@ void loop()
   }
   continueOnSelectedProgram();
 }
+
 
 
 
