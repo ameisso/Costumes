@@ -8,16 +8,17 @@
 #define PROGRAM_4 22
 #define PROGRAM_5 23
 
-#define LED_OUTPUT_LEFT_ARM 2
-#define LED_OUTPUT_RIGHT_ARM 14
-#define LED_OUTPUT_LEFT_LEG 7
-#define LED_OUTPUT_RIGHT_LEG 8
+#define LED_OUTPUT_LEFT_ARM 2       //orange
+#define LED_OUTPUT_RIGHT_ARM 14    //vert 
+#define LED_OUTPUT_LEFT_LEG 7     //bleu 
+#define LED_OUTPUT_RIGHT_LEG 8   //marron
 
 #define NUM_LEDS_IN_MEMBER 16
 
 #include "FastLED.h"
 CRGB leftArm[NUM_LEDS_IN_MEMBER];
 CRGB rightArm[NUM_LEDS_IN_MEMBER];
+
 CRGB leftLeg[NUM_LEDS_IN_MEMBER];
 CRGB rightLeg[NUM_LEDS_IN_MEMBER];
 
