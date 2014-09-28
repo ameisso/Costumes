@@ -9,11 +9,18 @@
 #define PROGRAM_5 23
 
 #define LED_OUTPUT_LEFT_ARM 2       //orange
-#define LED_OUTPUT_RIGHT_ARM 14    //vert 
-#define LED_OUTPUT_LEFT_LEG 7     //bleu 
+#define LED_OUTPUT_RIGHT_ARM 14    //bleu 
+#define LED_OUTPUT_LEFT_LEG 7     //vert
 #define LED_OUTPUT_RIGHT_LEG 8   //marron
 
+#define LED_OUTPUT_LEFT_RIBS 6 //orange
+#define LED_OUTPUT_RIGHT_RIBS 21 //bleu
+#define LED_OUTPUT_COLLUMN 20 //vert
+
 #define NUM_LEDS_IN_MEMBER 16
+#define NUM_LEDS_IN_LEFT_RIBS 100
+#define NUM_LEDS_IN_RIGHT_RIBS 100
+#deifne NUM_LEDS_IN_COLLUMN 24
 
 #include "FastLED.h"
 CRGB leftArm[NUM_LEDS_IN_MEMBER];
@@ -22,6 +29,9 @@ CRGB rightArm[NUM_LEDS_IN_MEMBER];
 CRGB leftLeg[NUM_LEDS_IN_MEMBER];
 CRGB rightLeg[NUM_LEDS_IN_MEMBER];
 
+CRGB leftRibs[NUM_LEDS_IN_LEFT_RIBS];
+CRGB rightRibs[NUM_LEDS_IN_RIGHT_RIBS];
+CRGB collumn[NUM_LEDS_IN_COLLUMN];
 
 #include <Metro.h>
 Metro metroButton = Metro (500);
@@ -47,6 +57,10 @@ void setup()
   FastLED.addLeds<WS2812B, LED_OUTPUT_RIGHT_ARM, GRB>(rightArm, NUM_LEDS_IN_MEMBER);
   FastLED.addLeds<WS2812B, LED_OUTPUT_LEFT_LEG, GRB>(leftLeg, NUM_LEDS_IN_MEMBER);
   FastLED.addLeds<WS2812B, LED_OUTPUT_RIGHT_LEG, GRB>(rightLeg, NUM_LEDS_IN_MEMBER);
+
+  FastLED.addLeds<WS2812B, LED_OUTPUT_LEFT_RIBS, GRB>(leftRibs, NUM_LEDS_IN_LEFT_RIBS);
+  FastLED.addLeds<WS2812B, LED_OUTPUT_RIGHT_RIBS, GRB>(rightRibs, NUM_LEDS_IN_RIGHT_RIBS);
+  FastLED.addLeds<WS2812B, LED_OUTPUT_COLLUMN, GRB>(collumn, NUM_LEDS_IN_COLLUMN);
 
   initSequence();
 }
@@ -79,6 +93,7 @@ void loop()
   }
   continueOnSelectedProgram();
 }
+
 
 
 

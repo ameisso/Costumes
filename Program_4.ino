@@ -1,6 +1,5 @@
 void program4AtStep(int step)//progressive
 {
-
   if(step < 200)
   {
     setColorForLastPatch(CRGB::Black);
