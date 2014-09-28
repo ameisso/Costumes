@@ -20,6 +20,15 @@ void setColorForAllPixels(CRGB color)
     leftLeg[i] = color;
     rightLeg[i] = color;
   }
+  for(uint16_t i=0; i<NUM_LEDS_IN_RIBS; i++)
+  {
+    leftRibs[i] = getRibColorForColor(color);
+    rightRibs[i] = getRibColorForColor(color);
+  }
+  for(uint16_t i=0; i<NUM_LEDS_IN_COLLUMN; i++)
+  {
+    collumn[i] = color;
+  }
   FastLED.show();
 }
 
@@ -32,6 +41,15 @@ void setColorForAllPixels(CRGB color, int intensity)
     rightArm[i] = color;
     leftLeg[i] = color;
     rightLeg[i] = color;
+  }
+  for(uint16_t i=0; i<NUM_LEDS_IN_RIBS; i++)
+  {
+    leftRibs[i]  = getRibColorForColor(color);
+    rightRibs[i]  = getRibColorForColor(color);
+  }
+  for(uint16_t i=0; i<NUM_LEDS_IN_COLLUMN; i++)
+  {
+    collumn[i] = color;
   }
   FastLED.show();
 }
@@ -100,12 +118,79 @@ void SetupPalette()
 
 void setColorForPatchInMember(CRGB color, int patchIndex, CRGB *member)
 {
-    for(uint16_t i=patchIndex *4; i<patchIndex * 4 +4; i++)
+  for(uint16_t i=patchIndex *4; i<patchIndex * 4 +4; i++)
   {
     member[i] = color;
   }
   FastLED.show();
 }
 
+void setColorForLeftRib(CRGB color, int ribIndex)
+{
+  for (int i = startIndexForRib(ribIndex) ; i < endIndexForRib(ribIndex) ; i++)
+  {
+    leftRibs[i] = getRibColorForColor(color);
+  }
+}
+
+void setColorForRightRib(CRGB color, int ribIndex)
+{
+  for (int i = startIndexForRib(ribIndex) ; i < endIndexForRib(ribIndex) ; i++)
+  {
+    rightRibs[i] = getRibColorForColor(color);
+  }
+}
+
+void setColorForRightRib(CRGB color, int ribIndex)
+{
+  setColorForLeftRib(CRGB color, int ribIndex);
+  setColorForRightRib(CRGB color, int ribIndex);
+}
+
+
+int startIndexForRib(int ribIndex)
+{
+  switch (ribIndex) {
+  case 1:
+    return 0;
+  case 2:
+    return 10;
+  case 3:
+    return 20;
+  case 4:
+    return 40;
+  case 5:
+    return 50;
+  case 6:
+    return 60;
+  }
+}
+
+int endIndexForRib(int ribIndex)
+{
+  switch (ribIndex) {
+  case 1:
+    return 9;
+  case 2:
+    return 19;
+  case 3:
+    return 29;
+  case 4:
+    return 39;
+  case 5:
+    return 49;
+  case 6:
+    return 59;
+  }
+}
+
+CRGB getRibColorForColor( CRGB inputColor)
+{
+  CRGB outputColor; 
+  outputColor.r = inputColor.r*1/RIB_LEDS_MAX_INTENSITY;
+  outputColor.g = inputColor.g*1/RIB_LEDS_MAX_INTENSITY;
+  outputColor.b = inputColor.b*1/RIB_LEDS_MAX_INTENSITY;
+  return outputColor;
+}
 
 
