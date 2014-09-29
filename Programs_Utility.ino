@@ -141,28 +141,47 @@ void setColorForRightRib(CRGB color, int ribIndex)
   }
 }
 
-void setColorForRightRib(CRGB color, int ribIndex)
+void setColorForRib (CRGB color, int ribIndex)
 {
-  setColorForLeftRib(CRGB color, int ribIndex);
-  setColorForRightRib(CRGB color, int ribIndex);
+  setColorForLeftRib (color, ribIndex);
+  setColorForRightRib (color, ribIndex);
+}
+
+void setColorForCollumn (CRGB color)
+{
+  for (int i = 0 ; i < NUM_LEDS_IN_COLLUMN ; i ++) 
+  {
+    collumn[i] = color;
+  }
+  FastLED.show();
+}
+
+void setColorForCollumnAtIndex(CRGB color, int index)
+{
+  for(uint16_t i=index *2; i<index * 2 +2; i++)
+  {
+    collumn[i] = color;
+  }
+  FastLED.show();
 }
 
 
+//INDEX OF LEDS RIBS DEPENDOING ON COSTUME
 int startIndexForRib(int ribIndex)
 {
   switch (ribIndex) {
   case 1:
     return 0;
   case 2:
-    return 10;
+    return 27;
   case 3:
-    return 20;
+    return 72;
   case 4:
-    return 40;
+    return 122;
   case 5:
-    return 50;
+    return 264;
   case 6:
-    return 60;
+    return 307; 
   }
 }
 
@@ -170,17 +189,17 @@ int endIndexForRib(int ribIndex)
 {
   switch (ribIndex) {
   case 1:
-    return 9;
+    return 26;
   case 2:
-    return 19;
+    return 71;
   case 3:
-    return 29;
+    return 121;
   case 4:
-    return 39;
+    return 263;
   case 5:
-    return 49;
+    return 306;
   case 6:
-    return 59;
+    return 341;
   }
 }
 
@@ -192,5 +211,7 @@ CRGB getRibColorForColor( CRGB inputColor)
   outputColor.b = inputColor.b*1/RIB_LEDS_MAX_INTENSITY;
   return outputColor;
 }
+
+
 
 
