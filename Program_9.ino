@@ -86,7 +86,6 @@ void program9AtStep(int step)//Water drop
     setColorForAllPixels(CRGB::Black);
     currentProgramStep = 0;
   }
-
   currentProgramStep ++;
 }
 

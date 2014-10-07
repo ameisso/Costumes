@@ -1,4 +1,4 @@
-#define COSTUME_COLOR CRGB::White
+#define COSTUME_COLOR CRGB::Navy
 
 #define STATUS_LED 13
 #define RIB_LEDS_MAX_INTENSITY 25
@@ -19,7 +19,7 @@
 #define LED_OUTPUT_COLLUMN 20 //vert
 
 #define NUM_LEDS_IN_MEMBER 16
-#define NUM_LEDS_IN_RIBS 100
+#define NUM_LEDS_IN_RIBS 341
 #define NUM_LEDS_IN_COLLUMN 24
 
 #include "FastLED.h"
@@ -37,7 +37,7 @@ CRGB collumn[NUM_LEDS_IN_COLLUMN];
 Metro metroButton = Metro (500);
 
 #warning : should init program at -1 and program step @ 0
-int currentProgram = 9;
+int currentProgram = 11;
 int currentProgramStep = 0;
 int way = -1;
 CRGBPalette16 currentPalette ;

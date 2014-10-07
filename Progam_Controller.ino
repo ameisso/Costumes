@@ -55,6 +55,12 @@ void startProgram10()
   currentProgramStep = 0;
 }
 
+void startProgram11()
+{
+  currentProgram = 11;
+  currentProgramStep = 0;
+}
+
 void continueOnSelectedProgram()
 {
   switch (currentProgram)
@@ -89,6 +95,9 @@ void continueOnSelectedProgram()
   case 10:
     program10AtStep(currentProgramStep);
     break;
+  case 11:
+    program11AtStep(currentProgramStep);
+    break;
   }
 }
 
@@ -119,6 +128,7 @@ int getButtonPressed()
     return -1;
   }
 }
+
 
 
 
