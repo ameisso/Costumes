@@ -9,14 +9,14 @@
 #define PROGRAM_4 22
 #define PROGRAM_5 23
 
-#define LED_OUTPUT_LEFT_ARM 2       //orange
-#define LED_OUTPUT_RIGHT_ARM 14    //bleu 
-#define LED_OUTPUT_LEFT_LEG 7     //vert
+#define LED_OUTPUT_LEFT_ARM 2    //orange
+#define LED_OUTPUT_RIGHT_ARM 14  //bleu 
+#define LED_OUTPUT_LEFT_LEG 7    //vert
 #define LED_OUTPUT_RIGHT_LEG 8   //marron
 
-#define LED_OUTPUT_LEFT_RIBS 6 //orange
-#define LED_OUTPUT_RIGHT_RIBS 21 //bleu
-#define LED_OUTPUT_COLLUMN 20 //vert
+#define LED_OUTPUT_LEFT_RIBS 6   //orange
+#define LED_OUTPUT_RIGHT_RIBS 20 //vert
+#define LED_OUTPUT_COLLUMN 21    //bleu
 
 #define NUM_LEDS_IN_MEMBER 16
 #define NUM_LEDS_IN_RIBS 341
@@ -81,13 +81,13 @@ void loop()
       startProgram2();
       break;
     case 3:
-      startProgram3();
+      startProgram9();
       break;
     case 4:
-      startProgram4();
+      startProgram11();
       break;
     case 5:
-      startProgram5();
+      startProgram10();
       break;
     }
   }

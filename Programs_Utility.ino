@@ -23,7 +23,7 @@ void setColorForAllPixels(CRGB color)
   for(uint16_t i=0; i<NUM_LEDS_IN_RIBS; i++)
   {
     leftRibs[i] = getRibColorForColor(color);
-  //  rightRibs[i] = getRibColorForColor(color);
+    rightRibs[i] = getRibColorForColor(color);
   }
   for(uint16_t i=0; i<NUM_LEDS_IN_COLLUMN; i++)
   {
@@ -211,6 +211,8 @@ CRGB getRibColorForColor( CRGB inputColor)
   outputColor.b = inputColor.b*1/RIB_LEDS_MAX_INTENSITY;
   return outputColor;
 }
+
+
 
 
 
