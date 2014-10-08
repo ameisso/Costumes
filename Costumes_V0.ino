@@ -37,7 +37,7 @@ CRGB collumn[NUM_LEDS_IN_COLLUMN];
 Metro metroButton = Metro (500);
 
 #warning : should init program at -1 and program step @ 0
-int currentProgram = 11;
+int currentProgram = 12;
 int currentProgramStep = 0;
 int way = -1;
 CRGBPalette16 currentPalette ;
