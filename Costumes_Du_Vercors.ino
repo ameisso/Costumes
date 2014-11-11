@@ -23,6 +23,7 @@
 #define NUM_LEDS_IN_COLLUMN 24
 
 #define NUM_RIBS 6
+#define DEBOUNCE_TIME 100 //ms 
 
 #include "FastLED.h"
 CRGB leftArm[NUM_LEDS_IN_MEMBER];
@@ -36,13 +37,15 @@ CRGB rightRibs[NUM_LEDS_IN_RIBS];
 CRGB collumn[NUM_LEDS_IN_COLLUMN];
 
 #include <Metro.h>
-Metro metroButton = Metro (500);
+Metro metroButton = Metro (50);
 
 #warning : should init program at -1 and program step @ 0
 int currentProgram = 1;
 int currentProgramStep = 0;
 int way = -1;
 int selectedIndexInPalette = 0;
+int lastButtonPressed = 0;
+
 CRGBPalette16 currentPalette ;
 
 void setup() 
@@ -71,8 +74,9 @@ void setup()
 
 void loop()                     
 {
-  if(metroButton.check() == true)
+  if(metroButton.check() == true && (millis() - lastButtonPressed > DEBOUNCE_TIME))
   {
+    lastButtonPressed = millis();
     digitalWrite(STATUS_LED, HIGH);
     delay(5);
     digitalWrite(STATUS_LED, LOW);
