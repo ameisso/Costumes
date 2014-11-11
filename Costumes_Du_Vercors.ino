@@ -22,6 +22,8 @@
 #define NUM_LEDS_IN_RIBS 341
 #define NUM_LEDS_IN_COLLUMN 24
 
+#define NUM_RIBS 6
+
 #include "FastLED.h"
 CRGB leftArm[NUM_LEDS_IN_MEMBER];
 CRGB rightArm[NUM_LEDS_IN_MEMBER];
@@ -40,11 +42,12 @@ Metro metroButton = Metro (500);
 int currentProgram = 1;
 int currentProgramStep = 0;
 int way = -1;
+int selectedIndexInPalette = 0;
 CRGBPalette16 currentPalette ;
 
 void setup() 
 {            
-  SetupPalette();
+  SetupPalette();//cette fonction est dans l'onglet programs_utility c'es la que l'on choisis les couleurs pour le programme 2 (et les autres dans le meme genre)
   pinMode(STATUS_LED, OUTPUT);
   Serial.begin(38400);
   pinMode(PROGRAM_1, INPUT_PULLUP);
@@ -82,10 +85,10 @@ void loop()
       startProgram2();
       break;
     case 3:
-      startProgram9();
+      startProgram3();
       break;
     case 4:
-      startProgram11();
+      startProgram4();
       break;
     case 5:
       startProgram5();

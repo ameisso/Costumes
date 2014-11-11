@@ -86,27 +86,6 @@ void continueOnSelectedProgram()
   case 5:
     program5AtStep(currentProgramStep);
     break;
-  case 6:
-    program6AtStep(currentProgramStep);
-    break;
-  case 7:
-    program7AtStep(currentProgramStep);
-    break;
-  case 8:
-    program8AtStep(currentProgramStep);
-    break;
-  case 9:
-    program9AtStep(currentProgramStep);
-    break;
-  case 10:
-    program10AtStep(currentProgramStep);
-    break;
-  case 11:
-    program11AtStep(currentProgramStep);
-    break;
-  case 12:
-    program12AtStep(currentProgramStep);
-    break;
   }
 }
 

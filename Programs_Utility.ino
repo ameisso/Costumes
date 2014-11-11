@@ -93,27 +93,51 @@ void setRandomColorForPatch()
     leftLeg[i] = ColorFromPalette( currentPalette, colorIndex, 255, NOBLEND);
     rightLeg[i] = ColorFromPalette( currentPalette, colorIndex, 255, NOBLEND);
   }
-  delay(50);
+  //delay(50);
   FastLED.show();
 }
 
+void setRandomColorForRibs()
+{
+  int colorIndex;
+  for (int ribIndex=0 ; ribIndex< NUM_RIBS ; ribIndex++)
+  {
+    colorIndex = random(100);
+    setColorForLeftRib( ColorFromPalette( currentPalette, colorIndex, 255,NOBLEND),ribIndex);
+    colorIndex = random(100);
+    setColorForRightRib( ColorFromPalette( currentPalette, colorIndex, 255,NOBLEND),ribIndex);
+  }
+  colorIndex = random(100);
+  setColorForCollumn( ColorFromPalette( currentPalette, colorIndex, 255,NOBLEND));
+  //delay(50);
+  FastLED.show();
+}
+
+
 void SetupPalette()
 {
-  CRGB SteelBlue = CRGB::SteelBlue;
-  CRGB Turquoise = CRGB::Turquoise;
-  CRGB SkyBlue = CRGB::SkyBlue;
-  CRGB RoyalBlue = CRGB::RoyalBlue;
-  CRGB PaleTurquoise = CRGB::PaleTurquoise;
-  CRGB MidnightBlue = CRGB::MidnightBlue;
-  CRGB LightCoral = CRGB::LightCoral;
-  CRGB Fuchsia = CRGB::Fuchsia;
-  CRGB black  = CRGB::Black;
+  CRGB color1 = CRGB::SteelBlue;
+  CRGB color2 = CRGB::Turquoise;
+  CRGB color3 = CRGB::SkyBlue;
+  CRGB color4 = CRGB::RoyalBlue;
+  CRGB color5 = CRGB::PaleTurquoise;
+  CRGB color6 = CRGB::MidnightBlue;
+  CRGB color7 = CRGB::LightCoral;
+  CRGB color8 = CRGB::Fuchsia;
+  CRGB color9  = CRGB::Black;
+  CRGB color10 = CRGB::SteelBlue;
+  CRGB color11 = CRGB::SteelBlue;
+  CRGB color12 = CRGB::SteelBlue;
+  CRGB color13 = CRGB::SteelBlue;
+  CRGB color14 = CRGB::SteelBlue;
+  CRGB color15 = CRGB::SteelBlue;
+  CRGB color16 = CRGB::SteelBlue;
 
   currentPalette = CRGBPalette16( 
-  SteelBlue,  Turquoise,  SkyBlue,  RoyalBlue,
-  PaleTurquoise, MidnightBlue, LightCoral,  Fuchsia,
-  SteelBlue,  Turquoise,  SkyBlue,  RoyalBlue,
-  PaleTurquoise, MidnightBlue, LightCoral,  Fuchsia);
+  color1,  color2,  color3,  color4,
+  color5, color6, color7,  color8,
+  color9,  color10,  color11,  color12,
+  color13, color14, color15,  color16);
 }
 
 void setColorForPatchInMember(CRGB color, int patchIndex, CRGB *member)
@@ -212,6 +236,11 @@ CRGB getRibColorForColor( CRGB inputColor)
   outputColor.b = inputColor.b*RIB_LEDS_MAX_INTENSITY/255;
   return outputColor;
 }
+
+
+
+
+
 
 
 
