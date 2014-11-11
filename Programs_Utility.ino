@@ -206,9 +206,10 @@ int endIndexForRib(int ribIndex)
 CRGB getRibColorForColor( CRGB inputColor)
 {
   CRGB outputColor; 
-  outputColor.r = inputColor.r*1/RIB_LEDS_MAX_INTENSITY;
-  outputColor.g = inputColor.g*1/RIB_LEDS_MAX_INTENSITY;
-  outputColor.b = inputColor.b*1/RIB_LEDS_MAX_INTENSITY;
+
+  outputColor.r = inputColor.r*RIB_LEDS_MAX_INTENSITY/255;
+  outputColor.g = inputColor.g*RIB_LEDS_MAX_INTENSITY/255;
+  outputColor.b = inputColor.b*RIB_LEDS_MAX_INTENSITY/255;
   return outputColor;
 }
 

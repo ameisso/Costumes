@@ -1,41 +1,37 @@
-void program12AtStep(int step)//Water drop
+void program12AtStep(int step)//color change 
 {
-  //BLACK OUT  
-  int timeBetweenColors = 1000;
-  if(step < timeBetweenColors)
+  //Serial.print("step ");
+  Serial.println(step);
+  if(step < 300)
   {
-    setColorForAllPixels(CRGB::White);
+    setColorForAllPixels(CRGB::Grey);
   }
-  else if(step>=timeBetweenColors && step < 2*timeBetweenColors)
+  else if(step>=300 && step < 500)
   {
-    setColorForAllPixels(CRGB::Navy);
+      setColorForAllPixels(CRGB::Navy);
   }
-  else if(step>=2*timeBetweenColors && step < 3*timeBetweenColors)
+  else if(step>=500 && step < 700)
   {
-    setColorForAllPixels(CRGB::Aqua);
+        setColorForAllPixels(CRGB::Blue);
   }
-  else if(step>=3*timeBetweenColors && step < 4*timeBetweenColors)
+  else if(step>=700 && step < 1000)
   {
-    setColorForAllPixels(CRGB::CadetBlue);
+        setColorForAllPixels(CRGB::Red);
   }
-  else if(step>=4*timeBetweenColors && step < 5*timeBetweenColors)
+  else if(step>=1000 && step < 1500)
   {
-    setColorForAllPixels(CRGB::CornflowerBlue);
+    setColorForAllPixels(CRGB::Orange);
   }
-  //Pour rajouter des états il faut copier coller cette ligne  jusqu'à
-  else if(step>=5*timeBetweenColors && step < 6*timeBetweenColors)
+  else if(step >= 1500 && step < 10000)
   {
-    setColorForAllPixels(CRGB::MidnightBlue);
-  }
-  //celle ci et incrémenter 5 et 6 de un.
-  else
-  {
-    //replay 
-    setColorForAllPixels(CRGB::Black);
-    currentProgramStep = 0;
+      setColorForAllPixels(CRGB::Green);
   }
   currentProgramStep ++;
 }
+
+
+
+
 
 
 
