@@ -38,13 +38,12 @@ CRGB rightRibs[NUM_LEDS_IN_RIBS];
 CRGB collumn[NUM_LEDS_IN_COLLUMN];
 
 #include <Metro.h>
-Metro metroButton = Metro (50);
+Metro metroButton = Metro (500);
 
 #warning : should init program at -1 and program step @ 0
 int currentProgram = -1;
 int currentProgramStep = 0;
 int programStartDate = 0;
-int way = -1;
 int selectedIndexInPalette = 0;
 int lastButtonPressed = 0;
 
@@ -71,20 +70,20 @@ void setup()
   FastLED.addLeds<WS2812B, LED_OUTPUT_COLLUMN, GRB>(collumn, NUM_LEDS_IN_COLLUMN);
 
   initSequence();
-  Serial.println("init OK 160");
-        startProgram2();
+  Serial.println("init OK 164");
 }
 
 void loop()                     
 {
-  if(metroButton.check() == true && (millis() - lastButtonPressed > DEBOUNCE_TIME))
+  if(metroButton.check() == true)
   {
     lastButtonPressed = millis();
     digitalWrite(STATUS_LED, HIGH);
     delay(5);
     digitalWrite(STATUS_LED, LOW);
     int buttonPressed = getButtonPressed();
-    switch (buttonPressed) {
+    switch (buttonPressed)
+    {
     case 1:
       startProgram1();
       break;
@@ -100,10 +99,14 @@ void loop()
     case 5:
       startProgram5();
       break;
+    case -1:
+      //Serial.println("noProgramSelected");
+      break;
     }
   }
   continueOnSelectedProgram();
 }
+
 
 
 

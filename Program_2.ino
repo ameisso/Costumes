@@ -259,12 +259,12 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
         setColorForRib (CRGB::White, 5);
       }
     }
-
-    FastLED.show();//verry important !!! 
+    FastLED.show();//verry important !!!
+    //Serial.println("white"+String(step));
   }
   else if(step >= 3000 && step < 6000)//choix du perso 
   {
-    FastLED.show();
+   // Serial.println("nothing"+String(step));
   }
   else if(step >= 6000 && step < 10000)//choix du perso 
   {
@@ -273,19 +273,19 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
       CRGB selectedColor = ColorFromPalette( currentPalette, selectedIndexInPalette, 255,NOBLEND);
       selectedIndexInPalette ++;
       setColorForAllPixels(selectedColor);
-      FastLED.show();
+      //Serial.println("newColor"+String(step % 500));
     }
-    //Serial.println("newColor"+String(millis()));
+
   }
   else if (step >= 10000 && step< 10200)//20 pourcent de la couleur finale 
   {
     setColorForAllPixels(COSTUME_COLOR, int (0.2*255));
-    //Serial.println("dimm"+String(millis()));
+    //Serial.println("dimm"+String(step));
   }
   else//100% de la couleur finale 
   {
     setColorForAllPixels(COSTUME_COLOR);
-    //Serial.println("endOfProgram"+String(millis()));
+    //Serial.println("endOfProgram"+String(step));
   }
 }
 
@@ -293,6 +293,9 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
 
 
 //5 couleurs : rouge vert bleu jaune rose 
+
+
+
 
 
 

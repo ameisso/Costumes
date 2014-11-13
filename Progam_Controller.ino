@@ -66,7 +66,10 @@ void startProgram12()
 
 void continueOnSelectedProgram()
 {
-  currentProgramStep = millis()-programStartDate;
+  if (currentProgram > 0)
+  {
+    currentProgramStep = millis()-programStartDate;
+  }
   switch (currentProgram)
   {
   case 1:
@@ -114,6 +117,7 @@ int getButtonPressed()
     return -1;
   }
 }
+
 
 
 
