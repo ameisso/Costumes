@@ -176,7 +176,6 @@ void setColorForCollumn (CRGB color)
   {
     collumn[i] = color;
   }
-  FastLED.show();
 }
 
 void setColorForCollumnAtIndex(CRGB color, int index)
@@ -185,7 +184,6 @@ void setColorForCollumnAtIndex(CRGB color, int index)
   {
     collumn[i] = color;
   }
-  FastLED.show();
 }
 
 
@@ -193,17 +191,17 @@ void setColorForCollumnAtIndex(CRGB color, int index)
 int startIndexForRib(int ribIndex)
 {
   switch (ribIndex) {
-  case 1:
+  case 0:
     return 0;
-  case 2:
+  case 1:
     return 27;
-  case 3:
+  case 2:
     return 72;
-  case 4:
+  case 3:
     return 122;
-  case 5:
+  case 4:
     return 264;
-  case 6:
+  case 5:
     return 307; 
   }
 }
@@ -211,17 +209,17 @@ int startIndexForRib(int ribIndex)
 int endIndexForRib(int ribIndex)
 {
   switch (ribIndex) {
-  case 1:
+  case 0:
     return 26;
-  case 2:
+  case 1:
     return 71;
-  case 3:
+  case 2:
     return 121;
-  case 4:
+  case 3:
     return 263;
-  case 5:
+  case 4:
     return 306;
-  case 6:
+  case 5:
     return 341;
   }
 }
