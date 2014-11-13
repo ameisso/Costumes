@@ -146,7 +146,6 @@ void setColorForPatchInMember(CRGB color, int patchIndex, CRGB *member)
   {
     member[i] = color;
   }
-  FastLED.show();
 }
 
 void setColorForLeftRib(CRGB color, int ribIndex)

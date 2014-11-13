@@ -41,7 +41,7 @@ CRGB collumn[NUM_LEDS_IN_COLLUMN];
 Metro metroButton = Metro (50);
 
 #warning : should init program at -1 and program step @ 0
-int currentProgram = 2;
+int currentProgram = -1;
 int currentProgramStep = 0;
 int programStartDate = 0;
 int way = -1;
@@ -71,7 +71,8 @@ void setup()
   FastLED.addLeds<WS2812B, LED_OUTPUT_COLLUMN, GRB>(collumn, NUM_LEDS_IN_COLLUMN);
 
   initSequence();
-  Serial.println("init OK 158");
+  Serial.println("init OK 159");
+       startProgram2();
 }
 
 void loop()                     
