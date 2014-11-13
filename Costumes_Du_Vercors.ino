@@ -1,4 +1,5 @@
-#define COSTUME_COLOR CRGB::Navy
+//#define COSTUME_COLOR CRGB::Navy
+#define COSTUME_COLOR CRGB::Orange
 
 #define STATUS_LED 13
 #define RIB_LEDS_MAX_INTENSITY 100
@@ -40,7 +41,7 @@ CRGB collumn[NUM_LEDS_IN_COLLUMN];
 Metro metroButton = Metro (50);
 
 #warning : should init program at -1 and program step @ 0
-int currentProgram = 1;
+int currentProgram = 2;
 int currentProgramStep = 0;
 int way = -1;
 int selectedIndexInPalette = 0;
@@ -69,7 +70,7 @@ void setup()
   FastLED.addLeds<WS2812B, LED_OUTPUT_COLLUMN, GRB>(collumn, NUM_LEDS_IN_COLLUMN);
 
   initSequence();
-    Serial.println("init OK 155");
+    Serial.println("init OK 157");
 }
 
 void loop()                     

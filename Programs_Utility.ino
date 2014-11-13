@@ -116,22 +116,22 @@ void setRandomColorForRibs()
 
 void SetupPalette()
 {
-  CRGB color1 = CRGB::SteelBlue;
-  CRGB color2 = CRGB::Turquoise;
-  CRGB color3 = CRGB::SkyBlue;
-  CRGB color4 = CRGB::RoyalBlue;
-  CRGB color5 = CRGB::PaleTurquoise;
-  CRGB color6 = CRGB::MidnightBlue;
-  CRGB color7 = CRGB::LightCoral;
-  CRGB color8 = CRGB::Fuchsia;
-  CRGB color9  = CRGB::Black;
-  CRGB color10 = CRGB::SteelBlue;
-  CRGB color11 = CRGB::SteelBlue;
-  CRGB color12 = CRGB::SteelBlue;
-  CRGB color13 = CRGB::SteelBlue;
-  CRGB color14 = CRGB::SteelBlue;
-  CRGB color15 = CRGB::SteelBlue;
-  CRGB color16 = CRGB::SteelBlue;
+  CRGB color1 = CRGB::Red;
+  CRGB color2 = CRGB::Navy;
+  CRGB color3 = CRGB::Green;
+  CRGB color4 = CRGB::Orange;
+  CRGB color5 = CRGB::Pink;
+  CRGB color6 = CRGB::Red;
+  CRGB color7 = CRGB::Navy;
+  CRGB color8 = CRGB::Green;
+  CRGB color9  = CRGB::Orange;
+  CRGB color10 = CRGB::Pink;
+  CRGB color11 = CRGB::Red;
+  CRGB color12 = CRGB::Navy;
+  CRGB color13 = CRGB::Green;
+  CRGB color14 = CRGB::Orange;
+  CRGB color15 = CRGB::Pink;
+  CRGB color16 = CRGB::Red;
 
   currentPalette = CRGBPalette16( 
   color1,  color2,  color3,  color4,

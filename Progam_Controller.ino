@@ -11,7 +11,7 @@ void startProgram2()
 void startProgram3()
 {
   currentProgram = 3;
-  currentProgramStep = 120;
+  currentProgramStep = 0;
 }
 void startProgram4()
 {

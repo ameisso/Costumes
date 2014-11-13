@@ -5,17 +5,18 @@ void program3AtStep(int step)//3)un mode "étoile/invincible" : roulement aléat
     setRandomColorForPatch();
     setRandomColorForRibs();
   }
-  else if (currentProgramStep < 10000)//le costume redeviens en mode normal. (cas 3 bis)
+  else if (currentProgramStep > 10000)//le costume redeviens en mode normal. (cas 3 bis)
   {
     setColorForAllPixels(COSTUME_COLOR);
   }
     currentProgramStep ++;
+    
+    Serial.println("step"+String(step));
 }
 
 
 
-
-
+//bleu
 
 
 
