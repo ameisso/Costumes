@@ -158,7 +158,16 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
     }
     else if(step >= 1500 && step < 3000)
     {
-      if(step >= 1600 && step < 1700)
+      if(step >= 1500 && step < 1600)
+      {
+        setColorForRib (CRGB::Black,  0);
+        setColorForRib (CRGB::Black,  1);
+        setColorForRib (CRGB::Black,  2);
+        setColorForRib (CRGB::Black,  3);
+        setColorForRib (CRGB::Black,  4);
+        setColorForRib (CRGB::Black,  5);
+      }
+      else if(step >= 1600 && step < 1700)
       {
         setColorForRib (CRGB::White, 0);
       }
@@ -249,23 +258,26 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
         setColorForRib (CRGB::White, 4);
         setColorForRib (CRGB::White, 5);
       }
-    Serial.println("rib "+String(step));
     }
 
     FastLED.show();//verry important !!! 
   }
-  else if(step >= 3000 && step < 7000)//choix du perso 
+  else if(step >= 3000 && step < 6000)//choix du perso 
   {
-    if (step % 255 < 2 )// le 255 c'est le nombre de cycles programmes avant de changer de couleurs, si tu met 1000 ca sera plus long entre deux couleurs. Si tu veut une longeur non constance tu remplace 255 par random(255,1000);
+    FastLED.show();
+  }
+  else if(step >= 6000 && step < 10000)//choix du perso 
+  {
+    if (step % 500 < 100 )// le 255 c'est le nombre de cycles programmes avant de changer de couleurs, si tu met 1000 ca sera plus long entre deux couleurs. Si tu veut une longeur non constance tu remplace 255 par random(255,1000);
     {//peut etre que le "< 2" sera plus un "< 10", a tester sur le costume.
       CRGB selectedColor = ColorFromPalette( currentPalette, selectedIndexInPalette, 255,NOBLEND);
       selectedIndexInPalette ++;
       setColorForAllPixels(selectedColor);
-      delay(10);
-      //Serial.println("newColor"+String(millis()));
+      FastLED.show();
     }
+    //Serial.println("newColor"+String(millis()));
   }
-  else if (step >= 7000 && step< 7200)//20 pourcent de la couleur finale 
+  else if (step >= 10000 && step< 10200)//20 pourcent de la couleur finale 
   {
     setColorForAllPixels(COSTUME_COLOR, int (0.2*255));
     //Serial.println("dimm"+String(millis()));
@@ -281,6 +293,10 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
 
 
 //5 couleurs : rouge vert bleu jaune rose 
+
+
+
+
 
 
 
