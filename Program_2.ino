@@ -266,7 +266,7 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
     setColorForAllPixels(CRGB::White);
         //Serial.println("fullWhi"+String(step));
   }
-  else if(step >= 6000 && step < 10000)//choix du perso 
+  else if(step >= 6000 && step < 18000)//choix du perso 
   {
     if (step % 255 < 30 )// le 255 c'est le nombre de cycles programmes avant de changer de couleurs, si tu met 1000 ca sera plus long entre deux couleurs. Si tu veut une longeur non constance tu remplace 255 par random(255,1000);
     {//peut etre que le "< 2" sera plus un "< 10", a tester sur le costume.
@@ -276,7 +276,7 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
       //Serial.println("newColor"+String(step % 500));
     }
   }
-  else if (step >= 10000 && step< 10200)//20 pourcent de la couleur finale 
+  else if (step >= 18000 && step< 18200)//20 pourcent de la couleur finale 
   {
     setColorForAllPixels(COSTUME_COLOR, int (0.2*255));
     //Serial.println("dimm"+String(step));

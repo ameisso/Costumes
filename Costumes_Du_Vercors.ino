@@ -2,7 +2,7 @@
 //#define COSTUME_COLOR CRGB::Orange
 
 #define STATUS_LED 13
-#define RIB_LEDS_MAX_INTENSITY 50
+#define RIB_LEDS_MAX_INTENSITY 100
 
 #define PROGRAM_1 17
 #define PROGRAM_2 18

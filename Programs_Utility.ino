@@ -52,6 +52,7 @@ void setColorForAllPixels(CRGB color, int intensity)
     collumn[i] = color;
   }
   FastLED.show();
+  FastLED.setBrightness( 255 );
 }
 
 
