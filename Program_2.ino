@@ -274,6 +274,7 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
       selectedIndexInPalette ++;
       setColorForAllPixels(selectedColor);
       //Serial.println("newColor"+String(step % 500));
+      delay (random(100));
     }
   }
   else if (step >= 18000 && step< 18200)//20 pourcent de la couleur finale 
