@@ -2,7 +2,7 @@
 //#define COSTUME_COLOR CRGB::Orange
 
 #define STATUS_LED 13
-#define RIB_LEDS_MAX_INTENSITY 100
+#define RIB_LEDS_MAX_INTENSITY 50
 
 #define PROGRAM_1 17
 #define PROGRAM_2 18
@@ -70,8 +70,8 @@ void setup()
   FastLED.addLeds<WS2812B, LED_OUTPUT_COLLUMN, GRB>(collumn, NUM_LEDS_IN_COLLUMN);
 
   initSequence();
-  Serial.println("init OK 170");
-  //startProgram2();
+  Serial.println("init OK 171");
+ // startProgram2();
 }
 
 void loop()                     
