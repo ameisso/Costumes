@@ -264,7 +264,7 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
   }
   else if(step >= 3000 && step < 6000)//choix du perso 
   {
-   // Serial.println("nothing"+String(step));
+    // Serial.println("nothing"+String(step));
   }
   else if(step >= 6000 && step < 10000)//choix du perso 
   {
@@ -275,7 +275,6 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
       setColorForAllPixels(selectedColor);
       //Serial.println("newColor"+String(step % 500));
     }
-
   }
   else if (step >= 10000 && step< 10200)//20 pourcent de la couleur finale 
   {
@@ -293,6 +292,7 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
 
 
 //5 couleurs : rouge vert bleu jaune rose 
+
 
 
 
