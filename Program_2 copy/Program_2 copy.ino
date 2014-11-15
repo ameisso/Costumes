@@ -260,12 +260,12 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
       }
     }
     FastLED.show();//verry important !!!
-   // Serial.println("white"+String(step));
+    Serial.println("white"+String(step));
   }
   else if(step >= 3000 && step < 6000)//choix du perso 
   {
-      setColorForAllPixels(CRGB::White);
-      //Serial.println("fullWhite");
+      setColorForAllPixels(COSTUME_COLOR);
+      Serial.println("fullWhite");
       delay(3000);
   }
   else if(step >= 6000 && step < 10000)//choix du perso 
@@ -275,7 +275,7 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
       CRGB selectedColor = ColorFromPalette( currentPalette, selectedIndexInPalette, 255,NOBLEND);
       selectedIndexInPalette ++;
       setColorForAllPixels(selectedColor);
-     // Serial.println("newColor"+String(step % 500));
+      Serial.println("newColor"+String(step % 500));
     }
   }
   else if (step >= 10000 && step< 10200)//20 pourcent de la couleur finale 
