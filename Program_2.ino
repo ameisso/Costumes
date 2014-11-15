@@ -288,9 +288,11 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
     if  (step % strobeSpeed  > 0 && step % strobeSpeed  < strobeSpeed/2)
     {
       setColorForAllPixels(COSTUME_COLOR, int (0.2*255));
+      
     }
     else if  (step % strobeSpeed  >= strobeSpeed/2 && step % strobeSpeed  < strobeSpeed)
     {
+        FastLED.setBrightness( 255 );
       setColorForAllPixels(COSTUME_COLOR);
     }
   }
