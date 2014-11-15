@@ -13,7 +13,6 @@ void program6AtStep(int step)//Mode Boss full on + flash rouge + arlequin
       setColorForAllPixels( CRGB::Black);
     }
   }
-
   else if  (step % strobeSpeed  >= 5000 && step % strobeSpeed  < 7000)//5000 temps ou commence l'arlequin | 7000 temps ou finit l'arlequin 
   {
     if (currentProgramStep % 255 < 2 )//255 vitesse de l'arlequin
