@@ -259,33 +259,40 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
         setColorForRib (CRGB::White, 5);
       }
     }
-     //Serial.println("white"+String(step));
+    //Serial.println("white"+String(step));
   }
   else if(step >= 3000 && step < 6000)//choix du perso 
   {
     setColorForAllPixels(CRGB::White);
-        //Serial.println("fullWhi"+String(step));
+    //Serial.println("fullWhi"+String(step));
   }
   else if(step >= 6000 && step < 18000)//choix du perso 
   {
-    if (step % 255 < 30 )// le 255 c'est le nombre de cycles programmes avant de changer de couleurs, si tu met 1000 ca sera plus long entre deux couleurs. Si tu veut une longeur non constance tu remplace 255 par random(255,1000);
-    {//peut etre que le "< 2" sera plus un "< 10", a tester sur le costume.
+    if (step % random(200,255) < 30 )
+    {
       CRGB selectedColor = ColorFromPalette( currentPalette, selectedIndexInPalette, 255,NOBLEND);
       selectedIndexInPalette ++;
       setColorForAllPixels(selectedColor);
       //Serial.println("newColor"+String(step % 500));
-      delay (random(100));
+
     }
   }
   else if (step >= 18000 && step< 18200)//20 pourcent de la couleur finale 
   {
-    setColorForAllPixels(COSTUME_COLOR, int (0.2*255));
+    //setColorForAllPixels(COSTUME_COLOR, int (0.2*255));
     //Serial.println("dimm"+String(step));
   }
   else//100% de la couleur finale 
   {
-    setColorForAllPixels(COSTUME_COLOR);
-    //Serial.println("endOfProgram"+String(step));
+    int strobeSpeed = 2000; 
+    if  (step % strobeSpeed  > 0 && step % strobeSpeed  < strobeSpeed/2)
+    {
+      setColorForAllPixels(COSTUME_COLOR, int (0.2*255));
+    }
+    else if  (step % strobeSpeed  >= strobeSpeed/2 && step % strobeSpeed  < strobeSpeed)
+    {
+      setColorForAllPixels(COSTUME_COLOR);
+    }
   }
   FastLED.show();
 }
@@ -294,6 +301,8 @@ void program2AtStep(int step)//2)un mode changement intégrale de couleur pour l
 
 
 //5 couleurs : rouge vert bleu jaune rose 
+
+
 
 
 
