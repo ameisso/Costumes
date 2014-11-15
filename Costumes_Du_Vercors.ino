@@ -70,7 +70,7 @@ void setup()
   FastLED.addLeds<WS2812B, LED_OUTPUT_COLLUMN, GRB>(collumn, NUM_LEDS_IN_COLLUMN);
 
   initSequence();
-  Serial.println("init OK 169");
+  Serial.println("init OK 170");
   //startProgram2();
 }
 
