@@ -12,7 +12,7 @@ void program1AtStep(int step)//NAISSANCE
   }
   else if (timeOFBirth <= 10000 && timeOFBirth > 0)
   {
-    while(timeOFBirth>0)
+    while(timeOFBirth>-7500)
     {
       setColorForAllPixels(COSTUME_COLOR, 0);
       delay(timeOFBirth/10);
