@@ -1,10 +1,34 @@
 void program3AtStep(int step)//RENCONTRE
 {
-  if (currentProgramStep % 255 < 2 )// le 255 c'est le nombre de cycles programmes avant de changer de couleurs, si tu met 1000 ca sera plus long entre deux couleurs. Si tu veut une longeur non constance tu remplace 255 par random(255,1000);
-  {//peut etre que le "< 2" sera plus un "< 10", a tester sur le costume.
-    setRandomColorForPatch();
-    setRandomColorForRibs();
+
+  Serial.println(step);
+  if  (breatheVariable < 20 || breatheVariable>150)
+  {
+    isBreatheAscending = !isBreatheAscending; 
   }
+
+  if(isBreatheAscending)
+  {
+    breatheVariable += 5;
+    FastLED.setBrightness( breatheVariable );
+    setColorForAllPixels(COSTUME_COLOR);
+  }
+  else
+  {
+    breatheVariable -= 10;
+    FastLED.setBrightness( breatheVariable );
+    setColorForAllPixels(COSTUME_COLOR);
+  }
+  delay (100);//vitesse du breathe
+
+ /* //debut flash
+  int randomVar = random(40);//fréquence du flash
+  if ( randomVar == 0)
+  {
+    setColorForAllPixels(COSTUME_COLOR,255);
+    delay (30);
+  }
+  //fin flash*/
 }
 
 

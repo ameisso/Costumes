@@ -8,12 +8,16 @@ void startProgram1()
 void startProgram2()
 {
   currentProgram = 2;
+  breatheVariable = 50; 
+  breatheDuration = 300;
   programStartDate = millis();
   FastLED.setBrightness( 255 );
 }
 void startProgram3()
 {
   currentProgram = 3;
+  breatheVariable = 50; 
+  breatheDuration = 300;
   programStartDate = millis();
   FastLED.setBrightness( 255 );
 }
@@ -136,6 +140,7 @@ int getButtonPressed()
     return -1;
   }
 }
+
 
 
 
