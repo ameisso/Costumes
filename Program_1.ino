@@ -12,10 +12,16 @@ void program1AtStep(int step)//NAISSANCE
   }
   else if (timeOFBirth <= 5000 && timeOFBirth > 0)
   {
-    setColorForAllPixels(COSTUME_COLOR, 0);
-    timeOFBirth -= 500;
-    programStartDate = millis();
-    
+    while(timeOFBirth>0)
+    {
+      setColorForAllPixels(COSTUME_COLOR, 0);
+      delay(200);
+      setColorForAllPixels(COSTUME_COLOR, 255);
+      delay(50); 
+      timeOFBirth -= 500;
+    }
+    // programStartDate = millis();
+
     // tatatata
   }
   else
@@ -28,3 +34,4 @@ void program1AtStep(int step)//NAISSANCE
 
 
 //jaune
+

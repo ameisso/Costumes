@@ -24,7 +24,7 @@ void program2AtStep(int step)//PHARE : plus lent qu'à lyon
   else
   {
     breatheVariable -= 10;
-    FastLED.setBrightness( max(50,breatheVariable) );
+    FastLED.setBrightness( breatheVariable );
     setColorForAllPixels(COSTUME_COLOR);
   }
   delay (100);//vitesse du breathe
