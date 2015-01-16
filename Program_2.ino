@@ -1,10 +1,10 @@
 void program2AtStep(int step)//PHARE : plus lent qu'à lyon 
 {
- 
-  if  (breatheVariable < breatheDuration || breatheVariable>300)
+
+  if  (1 < breatheDuration || breatheVariable>300)
   {
     isBreatheAscending = !isBreatheAscending; 
-   breatheDuration = random(0,200); 
+    //breatheDuration = random(0,200); 
   }
 
   int randomVar = random(100);
@@ -30,6 +30,7 @@ void program2AtStep(int step)//PHARE : plus lent qu'à lyon
 
 
 //5 couleurs : rouge vert bleu jaune rose 
+
 
 
 
