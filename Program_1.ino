@@ -4,13 +4,13 @@ void program1AtStep(int step)//NAISSANCE
   {
     setColorForAllPixels(COSTUME_COLOR, (step/(float)timeOFBirth)*255.0);
   }
-  else if(timeOFBirth > 5000)
+  else if(timeOFBirth > 10000)
   {
     setColorForAllPixels(COSTUME_COLOR, 0);
     timeOFBirth -= 5000;
     programStartDate = millis();
   }
-  else if (timeOFBirth <= 5000 && timeOFBirth > 0)
+  else if (timeOFBirth <= 10000 && timeOFBirth > 0)
   {
     while(timeOFBirth>0)
     {
