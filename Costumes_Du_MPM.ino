@@ -48,6 +48,8 @@ int selectedIndexInPalette = 0;
 int lastButtonPressed = 0;
 int breatheVariable = 50; 
 int breatheDuration = 300;
+
+boolean firstprogrmaphaseEnded =false; 
 boolean isBreatheAscending = true;
 CRGBPalette16 currentPalette ;
 
