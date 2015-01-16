@@ -1,6 +1,7 @@
 void startProgram1()
 {
   currentProgram = 1;
+  timeOFBirth = 30000;
   programStartDate = millis();
   FastLED.setBrightness( 255 );
 }

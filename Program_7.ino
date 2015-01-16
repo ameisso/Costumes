@@ -1,4 +1,4 @@
-void program7AtStep(int step)//Breathe
+void program7AtStep(int step)//breathe
 {
   if  (breatheVariable < 1 || breatheVariable>100)
   {
@@ -24,6 +24,8 @@ void program7AtStep(int step)//Breathe
 
   delay (30);//vitesse du breathe
 }
+
+
 
 
 
