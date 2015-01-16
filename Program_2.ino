@@ -1,13 +1,13 @@
 void program2AtStep(int step)//PHARE : plus lent qu'à lyon 
 {
-
-  if  (1 < breatheDuration || breatheVariable>300)
+  
+ Serial.println(step);
+  if  (breatheVariable < 20 || breatheVariable>200)
   {
     isBreatheAscending = !isBreatheAscending; 
-    //breatheDuration = random(0,200); 
   }
 
-  int randomVar = random(100);
+   int randomVar = random(40);
   if ( randomVar == 0)
   {
     setColorForAllPixels(COSTUME_COLOR,255);
@@ -16,68 +16,21 @@ void program2AtStep(int step)//PHARE : plus lent qu'à lyon
 
   if(isBreatheAscending)
   {
-    breatheVariable ++;
-    //setColorForAllPixels(COSTUME_COLOR,breatheVariable++);
+    breatheVariable +=10;
+    Serial.println(breatheVariable);
+      FastLED.setBrightness( breatheVariable );
+    setColorForAllPixels(COSTUME_COLOR);
   }
   else
   {
-    setColorForAllPixels(COSTUME_COLOR,breatheVariable--);
+    breatheVariable -= 10;
+    FastLED.setBrightness( max(50,breatheVariable) );
+    setColorForAllPixels(COSTUME_COLOR);
   }
-  delay (30);//vitesse du breathe
+  delay (100);//vitesse du breathe
 }
 
-//vert 
-
-
-//5 couleurs : rouge vert bleu jaune rose 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//rouge
 
 
 

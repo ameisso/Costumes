@@ -46,8 +46,8 @@ int currentProgramStep = 0;
 int programStartDate = 0;
 int selectedIndexInPalette = 0;
 int lastButtonPressed = 0;
-int breatheVariable = 300; 
-int breatheDuration = 200;
+int breatheVariable = 50; 
+int breatheDuration = 300;
 boolean isBreatheAscending = true;
 CRGBPalette16 currentPalette ;
 
@@ -74,7 +74,7 @@ void setup()
   FastLED.addLeds<WS2812B, LED_OUTPUT_COLLUMN, GRB>(collumn, NUM_LEDS_IN_COLLUMN);
 
   initSequence();
-  Serial.println("init OK 177");
+  Serial.println("init OK 178");
   startProgram2();
 }
 
