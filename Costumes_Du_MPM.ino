@@ -1,5 +1,5 @@
 //#define COSTUME_COLOR CRGB::Navy
-#define COSTUME_COLOR CRGB::Orange
+#define COSTUME_COLOR CRGB::Cyan
 
 #define STATUS_LED 13
 #define RIB_LEDS_MAX_INTENSITY 50
@@ -41,12 +41,13 @@ CRGB collumn[NUM_LEDS_IN_COLLUMN];
 Metro metroButton = Metro (500);
 
 #warning : should init program at -1 and program step @ 0
-int currentProgram = -1;
+int currentProgram = 7;
 int currentProgramStep = 0;
 int programStartDate = 0;
 int selectedIndexInPalette = 0;
 int lastButtonPressed = 0;
-
+int breatheVariable = 1; 
+boolean isBreatheAscending = true;
 CRGBPalette16 currentPalette ;
 
 void setup() 
@@ -70,8 +71,8 @@ void setup()
   FastLED.addLeds<WS2812B, LED_OUTPUT_COLLUMN, GRB>(collumn, NUM_LEDS_IN_COLLUMN);
 
   initSequence();
-  Serial.println("init OK 171");
- // startProgram2();
+  Serial.println("init OK 176");
+  startProgram7();
 }
 
 void loop()                     

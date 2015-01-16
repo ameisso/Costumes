@@ -1,12 +1,12 @@
 void program6AtStep(int step)//Mode Boss full on + flash rouge + arlequin  
 {
   int strobeSpeed = 15000; // durée totale du programme 
-  if  (step % strobeSpeed  > 0 && step % strobeSpeed  < 2000) // 2000 = durée alernance rouge/noire
+  if  (step % strobeSpeed  > 0 && step % strobeSpeed  < 2000) // 2000 = durée alternance rouge/noir
   {
     int deathSpeed = 200;// vitesse de rouge/noire
     if  (step % deathSpeed  > 0 && step % deathSpeed  < deathSpeed/2)
     {
-      setColorForAllPixels( CRGB::Red);// ou setColorForAllPixels(COSTUME_COLOR);
+      setColorForAllPixels( CRGB::Red);
     }
     else if  (step % deathSpeed  >= deathSpeed/2 && step % deathSpeed  < deathSpeed)
     {

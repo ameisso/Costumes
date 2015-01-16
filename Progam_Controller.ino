@@ -102,6 +102,9 @@ void continueOnSelectedProgram()
   case 6:
     program6AtStep(currentProgramStep);
     break;
+  case 7:
+    program7AtStep(currentProgramStep);
+    break;
   }
 }
 
@@ -132,6 +135,7 @@ int getButtonPressed()
     return -1;
   }
 }
+
 
 
 
