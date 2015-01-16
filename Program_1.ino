@@ -4,21 +4,37 @@ void program1AtStep(int step)//NAISSANCE
   {
     setColorForAllPixels(COSTUME_COLOR, (step/(float)timeOFBirth)*255.0);
   }
-  else if(timeOFBirth > 10000)
+  else if(timeOFBirth > 5000)
   {
     setColorForAllPixels(COSTUME_COLOR, 0);
     timeOFBirth -= 5000;
     programStartDate = millis();
   }
-  else if (timeOFBirth <= 10000 && timeOFBirth > 0)
+  else if (timeOFBirth <= 5000 && timeOFBirth > 0)
   {
-    while(timeOFBirth>-7500)
+    if (timeOFBirth <= 5000 && timeOFBirth > 4000)
     {
-      setColorForAllPixels(COSTUME_COLOR, 0);
-      delay(timeOFBirth/10);
-      setColorForAllPixels(COSTUME_COLOR, 255);
-      delay(timeOFBirth/15); 
-      timeOFBirth -= 500;
+    setColorForAllPixels(COSTUME_COLOR, 0);
+    timeOFBirth -= 500;
+    programStartDate = millis();
+    }
+    else if (timeOFBirth <= 4000 && timeOFBirth > 3000)
+    {
+    setColorForAllPixels(COSTUME_COLOR, 0);
+    timeOFBirth -= 600;
+    programStartDate = millis();
+    }
+    else if (timeOFBirth <= 3000 && timeOFBirth > 1000)
+    {
+    setColorForAllPixels(COSTUME_COLOR, 0);
+    timeOFBirth -= 800;
+    programStartDate = millis();
+    }
+    else if (timeOFBirth <= 1000 && timeOFBirth > 0)
+    {
+    setColorForAllPixels(COSTUME_COLOR, 0);
+    timeOFBirth -= 100;
+    programStartDate = millis();
     }
     // programStartDate = millis();
 
@@ -26,6 +42,7 @@ void program1AtStep(int step)//NAISSANCE
   }
   else
   {
+    Serial.println("I go there");
     setColorForAllPixels(COSTUME_COLOR,255);
   }
 }
@@ -34,4 +51,7 @@ void program1AtStep(int step)//NAISSANCE
 
 
 //jaune
+
+
+
 
