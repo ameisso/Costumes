@@ -15,9 +15,9 @@ void program1AtStep(int step)//NAISSANCE
     while(timeOFBirth>0)
     {
       setColorForAllPixels(COSTUME_COLOR, 0);
-      delay(200);
+      delay(timeOFBirth/10);
       setColorForAllPixels(COSTUME_COLOR, 255);
-      delay(50); 
+      delay(timeOFBirth/15); 
       timeOFBirth -= 500;
     }
     // programStartDate = millis();

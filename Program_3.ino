@@ -2,20 +2,20 @@ void program3AtStep(int step)//RENCONTRE
 {
 
   Serial.println(step);
-  if  (breatheVariable < 20 || breatheVariable>150)
+  if  (breatheVariable < 20 || breatheVariable>100)
   {
     isBreatheAscending = !isBreatheAscending; 
   }
 
   if(isBreatheAscending)
   {
-    breatheVariable += 5;
+    breatheVariable += 2;
     FastLED.setBrightness( breatheVariable );
     setColorForAllPixels(COSTUME_COLOR);
   }
   else
   {
-    breatheVariable -= 10;
+    breatheVariable -= 5;
     FastLED.setBrightness( breatheVariable );
     setColorForAllPixels(COSTUME_COLOR);
   }

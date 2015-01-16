@@ -1,4 +1,4 @@
-void program2AtStep(int step)//PHARE : plus lent qu'à lyon 
+void program2AtStep(int step)//RESPIRATION 
 {
 
   Serial.println(step);
