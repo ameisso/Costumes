@@ -26,7 +26,7 @@ void program1AtStep(int step)//NAISSANCE
   {
     //10 s de noir 
     setColorForAllPixels(COSTUME_COLOR, 0);
-    if (step > 39995)
+    if (step > 39900)
     {
 
       firstprogrmaphaseEnded = true;
