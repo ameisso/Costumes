@@ -77,7 +77,7 @@ void setup()
 
   initSequence();
   Serial.println("init OK 178");
-  startProgram1();
+  startProgram2();
 }
 
 void loop()                     

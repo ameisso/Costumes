@@ -2,7 +2,7 @@ void program2AtStep(int step)//RESPIRATION
 {
 
   Serial.println(step);
-  if  (breatheVariable < 20 || breatheVariable>150)
+  if  (breatheVariable < 20 || breatheVariable>100)
   {
     isBreatheAscending = !isBreatheAscending; 
   }
@@ -19,7 +19,7 @@ void program2AtStep(int step)//RESPIRATION
     FastLED.setBrightness( breatheVariable );
     setColorForAllPixels(COSTUME_COLOR);
   }
-  delay (100);//vitesse du breathe
+  delay (140);//vitesse du breathe
 
  /* //debut flash
   int randomVar = random(40);//fréquence du flash
